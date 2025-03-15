@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
 import MovieList from '../components/MovieList';
+import PrimeWhite from '../prime-white.svg'
 
 function Home({ homeMovies }) {
     
@@ -48,9 +49,11 @@ function Home({ homeMovies }) {
                 }
             </div>
             <div className="home__background--gradient"></div>
+            <img src={PrimeWhite} className="home__logo" alt="white prime video logo" />
+            <div className="home__more--details">More details</div>
         </section>
         <section className="home__browse">
-                <MovieList title="Popular movies" query="inception" />
+                <MovieList title="" query="inception" />
         </section>
         </>
     )

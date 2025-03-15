@@ -1,5 +1,12 @@
 body {
   background-color: rgb(5, 0, 36);
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 * {
@@ -14,6 +21,10 @@ body {
 
 a {
   text-decoration: none;
+}
+
+img {
+  pointer-events: none;
 }
 
 nav {
@@ -70,12 +81,13 @@ nav div {
 
 .nav__join-prime {
   background-color: rgb(32, 145, 221);
-  padding: 10px 12px;
+  padding: 10px 16px;
   border-radius: 8px;
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 600;
   box-shadow: 0 0 25px -10px rgb(32, 145, 221);
   transition: box-shadow 0.2s ease;
+  letter-spacing: 1.3px;
 }
 
 .nav__join-prime:hover {
@@ -107,13 +119,14 @@ nav div {
 }
 
 .home__background--gradient {
-  background: radial-gradient(at right center, #FFFFFF00, #010101dd);
+  background: radial-gradient(at right center, rgba(5, 0, 36, 0), rgba(5, 0, 36, 0.8));
   width: 100vw;
   height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
   z-index: -1;
+  box-shadow: 10px 0 90px 10px rgb(5, 0, 36) inset, 90px 20px 90px -90px rgb(5, 0, 36) inset;
 }
 
 .home__browse {
@@ -123,10 +136,46 @@ nav div {
   width: 100%;
   height: 200vh;
   background-color: rgb(5, 0, 36);
-  box-shadow: 0 -15px 50px -8px rgb(5, 0, 36);
+}
+
+.home__browse::before {
+  content: '';
+  background: linear-gradient(0deg, rgba(5, 0, 36), rgba(5, 0, 36, 0.521), #FFFFFF00);
+  height: 80px;
+  width: 100%;
+  display: block;
+  position: absolute;
+  bottom: 100%;
 }
 
 .movie__list--container {
   margin: 24px 0px 24px 65px;
   background: red;
+}
+
+.home__more--details {
+  position: absolute;
+  bottom: calc(20% + 52px);
+  left: 65px;
+  padding: 16px 24px;
+  font-size: 22px;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.1s ease;
+  background-color: rgba(73, 77, 88, 0.644);
+  box-shadow: 0 5px 20px -5px rgb(100, 105, 122) inset;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.home__more--details:hover {
+  background: white;
+  color:rgb(5, 0, 36);
+}
+
+.home__logo {
+  position: absolute;
+  bottom: calc(20% + 100px);
+  max-width: 500px;
+  filter: saturate(0%) brightness(1000%);
 }
