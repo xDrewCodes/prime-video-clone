@@ -1,8 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import 'typeface-pt-sans'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faGrip } from '@fortawesome/free-solid-svg-icons'
+
+library.add( faGrip )
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

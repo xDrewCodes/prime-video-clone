@@ -1,6 +1,79 @@
 
+body {
+  background-color: rgb(5, 0, 36);
+}
+
+* {
+  font-family: 'pt sans';
+  color: white;
+}
+
+.row {
+  margin: 0 80px;
+}
+
+a {
+  text-decoration: none;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
 }
 
+nav div {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.nav__logo {
+  font-size: 21px;
+  margin-right: 32px;
+  letter-spacing: 0.4;
+  font-weight: 600;
+}
+
+.nav__link {
+  color: white;
+  margin: 0 6px;
+  padding: 12px 18px;
+  background: rgb(5, 0, 36);
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.1s ease;
+}
+
+.nav__link:hover {
+  background-color: rgb(24, 19, 63);
+}
+
+.nav__link--selected {
+  background-color: rgb(31, 43, 78);
+  box-shadow: 0 5px 20px -5px rgb(16, 29, 68) inset;
+}
+
+.nav__profile--side div {
+  margin-left: 20px;
+}
+
+.nav__profile {
+  background: rgb(54, 68, 107);
+  border-radius: 999px;
+  height: 32px;
+  width: 32px;
+}
+
+.nav__join-prime {
+  background-color: rgb(32, 145, 221);
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  box-shadow: 0 0 25px -10px rgb(32,145,221);
+  transition: box-shadow 0.2s ease;
+}
+
+.nav__join-prime:hover {
+  box-shadow: 0 0 25px -2px rgb(32,145,221);
+}
