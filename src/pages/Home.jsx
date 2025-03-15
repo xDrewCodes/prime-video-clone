@@ -42,7 +42,7 @@ function Home({ homeMovies }) {
                 {
                     homeMovies.map((movie, index) => {
                         return (
-                            <img src={movie['#IMG_POSTER']} key={index} className="home__movie--img" />
+                            <img src={movie['#IMG_POSTER']} alt='movie poster' key={index} className="home__movie--img" />
                         )
                     })
                 }
