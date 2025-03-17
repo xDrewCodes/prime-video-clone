@@ -1,4 +1,4 @@
-import axios from 'axios';
+
 import React, { useEffect } from 'react';
 import MovieList from '../components/MovieList';
 import PrimeWhite from '../prime-white.svg'
@@ -10,7 +10,7 @@ function Home({ homeMovies }) {
             const scrollPosition = window.scrollY;
             const gradientElement = document.querySelector('.home__background--display');
             if (gradientElement) {
-                gradientElement.style.transform = `rotate(-12deg) translateX(-${scrollPosition / 2.5}px)`;
+                gradientElement.style.transform = `rotate(-12deg) translateX(-${scrollPosition / 2}px)`;
             }
         };
 
@@ -20,21 +20,6 @@ function Home({ homeMovies }) {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
-
-    useEffect(() => {
-        if (homeMovies.length >= 12) {
-            const imdbId = homeMovies[11]['#IMDB_ID'];
-            const options = { method: 'GET', url: `https://imdb.iamidiotareyoutoo.com/search?tt=${imdbId}` };
-
-            axios.request(options)
-                .then(response => {
-                    console.log(response.data);
-                })
-                .catch(error => {
-                    console.error(error);
-                });
-        }
-    }, [homeMovies]);
 
     return (
         <>
@@ -53,7 +38,9 @@ function Home({ homeMovies }) {
             <div className="home__more--details">More details</div>
         </section>
         <section className="home__browse">
-                <MovieList title="" query="inception" />
+                <MovieList title="Popular movies" list={homeMovies.slice(30, 45)} />
+                <MovieList title="Recently added" list={homeMovies.slice(0, 15)} />
+                <MovieList title="Amazon originals" list={homeMovies.slice(20, 35)} />
         </section>
         </>
     )

@@ -23,7 +23,7 @@ a {
   text-decoration: none;
 }
 
-img {
+.home__main img {
   pointer-events: none;
 }
 
@@ -148,11 +148,6 @@ nav div {
   bottom: 100%;
 }
 
-.movie__list--container {
-  margin: 24px 0px 24px 65px;
-  background: red;
-}
-
 .home__more--details {
   position: absolute;
   bottom: calc(20% + 52px);
@@ -178,4 +173,29 @@ nav div {
   bottom: calc(20% + 100px);
   max-width: 500px;
   filter: saturate(0%) brightness(1000%);
+}
+
+
+
+
+
+.movie__list--container {
+  margin: 24px 0px 24px 65px;
+}
+
+.movie__list--title {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.movie__list--movies {
+  display: flex;
+}
+
+.movie__list--movies img {
+  height: 210px;
+  width: 140px;
+  margin-right: 32px;
+  object-fit: cover;
+  cursor: pointer;
 }
