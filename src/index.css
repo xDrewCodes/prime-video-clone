@@ -68,8 +68,13 @@ nav div {
   box-shadow: 0 5px 20px -5px rgb(100, 105, 122) inset;
 }
 
-.nav__profile--side div {
-  margin-left: 18px;
+.nav__select {
+  padding: 10px;
+  border-radius: 100px;
+}
+
+.nav__select:hover {
+  background-color: rgba(255, 255, 255, 0.267);
 }
 
 .nav__profile {
@@ -77,6 +82,11 @@ nav div {
   border-radius: 999px;
   height: 36px;
   width: 36px;
+  margin-left: 10px;
+}
+
+.nav__profile:hover {
+  border: 3px white solid;
 }
 
 .nav__join-prime {
@@ -88,6 +98,7 @@ nav div {
   box-shadow: 0 0 25px -10px rgb(32, 145, 221);
   transition: box-shadow 0.2s ease;
   letter-spacing: 1.3px;
+  margin-left: 18px;
 }
 
 .nav__join-prime:hover {
@@ -165,7 +176,7 @@ nav div {
 
 .home__more--details:hover {
   background: white;
-  color:rgb(5, 0, 36);
+  color: rgb(5, 0, 36);
 }
 
 .home__logo {
@@ -180,12 +191,13 @@ nav div {
 
 
 .movie__list--container {
-  margin: 24px 0px 24px 65px;
+  margin: 55px 0px 55px 65px;
+  overflow-x: hidden;
 }
 
 .movie__list--title {
   font-size: 22px;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .movie__list--movies {
@@ -198,4 +210,53 @@ nav div {
   margin-right: 32px;
   object-fit: cover;
   cursor: pointer;
+}
+
+
+
+
+
+.movie__page--main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 95vh;
+  margin: 0 65px;
+}
+
+.movie__page--info {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.movie__page--main img {
+  height: 600px;
+  width: 400px;
+}
+
+.movie__page--title {
+  font-size: 48px;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+
+.movie__page--description {
+  max-width: 550px;
+  font-size: 22px;
+}
+
+.movie__page--year {
+  margin-top: 18px;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.movie__page--background-img {
+  filter: blur(50px) opacity(0.25);
+  width: 100vw !important;
+  height: 100vh !important;
+  position: absolute;
+  top: 0;
+  left: 0;
 }

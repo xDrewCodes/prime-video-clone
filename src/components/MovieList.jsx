@@ -9,7 +9,7 @@ function MovieList({ title, list }) {
             <div className="movie__list--movies">
                 {
                     list.map((movie, index) => {
-                        return <Movie movie={movie} key={index}/>
+                        return <Movie movie={movie} key={index} />
                     })
                 }
             </div>

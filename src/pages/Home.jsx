@@ -4,23 +4,6 @@ import MovieList from '../components/MovieList';
 import PrimeWhite from '../prime-white.svg'
 
 function Home({ homeMovies }) {
-    
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollPosition = window.scrollY;
-            const gradientElement = document.querySelector('.home__background--display');
-            if (gradientElement) {
-                gradientElement.style.transform = `rotate(-12deg) translateX(-${scrollPosition / 2}px)`;
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-
     return (
         <>
         <section className="home__main">
