@@ -19,6 +19,12 @@ body {
   margin: 0 65px;
 }
 
+.skelly {
+  background-color: rgba(204, 204, 204, 0.356);
+  color: rgba(0, 0, 0, 0);
+  border: 0;
+}
+
 a {
   text-decoration: none;
 }
@@ -30,6 +36,7 @@ a {
 nav {
   position: fixed;
   display: flex;
+  top: 10px;
   justify-content: space-between;
   z-index: 2;
   width: calc(100% - 130px);
@@ -230,6 +237,10 @@ nav div {
   justify-content: end;
 }
 
+.movie__page--main img.skelly {
+  filter: saturate(0%) brightness(1000%);
+}
+
 .movie__page--main img {
   height: 600px;
   width: 400px;
@@ -239,17 +250,20 @@ nav div {
   font-size: 48px;
   margin-bottom: 12px;
   font-weight: bold;
+  width: fit-content;
 }
 
 .movie__page--description {
   max-width: 550px;
   font-size: 22px;
+  width: fit-content;
 }
 
 .movie__page--year {
   margin-top: 18px;
   font-weight: bold;
   font-size: 24px;
+  width: fit-content;
 }
 
 .movie__page--background-img {
