@@ -14,7 +14,7 @@ function MoviePage(movie) {
 
         const options = {
             method: 'GET',
-            url: `http://www.omdbapi.com/?i=${mov.id}&apikey=baebe8ed`
+            url: `https://www.omdbapi.com/?i=${mov.id}&apikey=baebe8ed`
         }
 
         try {
