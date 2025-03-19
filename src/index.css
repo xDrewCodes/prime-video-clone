@@ -539,12 +539,13 @@ nav div {
   .movie__page--main {
     flex-direction: column-reverse;
     margin: 0;
-    margin-top: 0;
-    height: 100vh;
-    min-height: 100vh;
+    margin-top: 55px;
+    height: auto;
+    min-height: unset;
     min-width: 100%;
     justify-content: center;
     align-items: center;
+    overflow-y: auto;
   }
 
   .movie__page--main img:last-child {
