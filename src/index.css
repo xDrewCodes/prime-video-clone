@@ -119,8 +119,8 @@ nav div {
 }
 
 .nav__link--selected {
-  background-color: rgba(73, 77, 88, 0.644);
-  box-shadow: 0 5px 20px -5px rgb(100, 105, 122) inset;
+  background-color: rgba(88, 88, 88, 0.26);
+  box-shadow: 0 5px 20px -5px rgba(194, 194, 194, 0.151) inset;
 }
 
 .nav__select {
@@ -217,6 +217,20 @@ nav div {
   position: absolute;
   bottom: calc(20% + 52px);
   left: 65px;
+  font-size: 22px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 16px 24px;
+  transition: all 0.1s ease;
+  background-color: #2091DD;
+  box-shadow: 0 5px 20px -5px #96c2dfb0 inset;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.home__search--movies:hover {
+  background-color: white;
+  color: rgba(5, 0, 36);
 }
 
 
@@ -355,6 +369,8 @@ nav div {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: hidden;
+  height: 130px;
 }
 
 .movies__search--title {

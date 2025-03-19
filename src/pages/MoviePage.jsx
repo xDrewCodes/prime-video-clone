@@ -29,6 +29,7 @@ function MoviePage(movie) {
     useEffect(() => {
         getMovie()
     }, [])
+    console.log(currentMovie)
     return (
         <div className="movie__page--main">
             <img loading="eager" src={currentMovie && currentMovie.Poster} alt={currentMovie && currentMovie.Title} className="movie__page--background-img" />
@@ -62,7 +63,10 @@ function MoviePage(movie) {
                                     :
                                     currentMovie.Year
                             }</div>
-
+                            {
+                                currentMovie && currentMovie.Rated !== 'N/A' &&
+                                <div className="movie__page--year">{currentMovie.Rated}</div>
+                            }
                         </div>
                         <div className="movie__page--genres">
                             {

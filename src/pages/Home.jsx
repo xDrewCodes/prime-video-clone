@@ -19,7 +19,7 @@ function Home({ homeMovies }) {
             </div>
             <div className="home__background--gradient"></div>
             <img src={PrimeWhite} className="home__logo" alt="white prime video logo" />
-            <Link to="/movies"><div className="home__search--movies button">Search movies</div></Link>
+            <Link to="/movies"><div className="home__search--movies">Search movies</div></Link>
         </section>
         <section className="home__browse">
                 <MovieList title="Popular movies" list={homeMovies.slice(30, 45)} />

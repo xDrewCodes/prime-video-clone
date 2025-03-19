@@ -69,7 +69,7 @@ function Movies() {
         <div className="movies__main">
             <div className="movies__search--section">
                 <div className="movies__search--title">Search our catalogue of great movies</div>
-                <input className="movies__search--field" onKeyDown={(event) => { if (event.key === 'Enter') { search(event.target.value) } }} placeholder='Try "Inception"' type="text"></input>
+                <input className="movies__search--field" onKeyDown={(event) => { if (event.key === 'Enter') { search(event.target.value) } }} placeholder='Try "Twisters"' type="text"></input>
             </div>
 
             {
