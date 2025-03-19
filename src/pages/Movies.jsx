@@ -5,7 +5,8 @@ import MovieList from '../components/MovieList'
 function Movies() {
     const [moviesList, setMoviesList] = useState([])
     const [searchedMovies, setSearchedMovies] = useState(null)
-    const [searchQuery, setSearchQuery] = useState()
+    const [searchQuery, setSearchQuery] = useState('')
+    const [inputValue, setInputValue] = useState('') // State to track input value
 
     async function searchMovies() {
         const queries = ['i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q']
@@ -52,7 +53,6 @@ function Movies() {
     ]
 
     async function search(query) {
-
         setSearchQuery(query)
 
         const options = {
@@ -62,14 +62,30 @@ function Movies() {
         }
         let response = await axios.request(options)
         setSearchedMovies(response.data.description)
-
     }
 
     return (
         <div className="movies__main">
             <div className="movies__search--section">
                 <div className="movies__search--title">Search our catalogue of great movies</div>
-                <input className="movies__search--field" onKeyDown={(event) => { if (event.key === 'Enter') { search(event.target.value) } }} placeholder='Try "Twisters"' type="text"></input>
+                <input
+                    className="movies__search--field"
+                    value={inputValue} // Bind input value to state
+                    onChange={(event) => setInputValue(event.target.value)} // Update state on change
+                    onKeyDown={(event) => {
+                        if (event.key === 'Enter') {
+                            search(event.target.value || 'Twisters')
+                        }
+                    }}
+                    placeholder='Try "Twisters"'
+                    type="text"
+                />
+                <button
+                    className="movies__search--button"
+                    onClick={() => search(inputValue || 'Twisters')} // Use inputValue for search
+                >
+                    Search
+                </button>
             </div>
 
             {
