@@ -35,6 +35,44 @@ body {
   border: 0;
 }
 
+.button {
+  font-size: 22px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 16px 24px;
+  transition: all 0.1s ease;
+  background-color: rgba(88, 88, 88, 0.137);
+  box-shadow: 0 5px 20px -5px rgba(194, 194, 194, 0.151) inset;
+  z-index: 1;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.button:hover {
+  background: white;
+  color: rgb(5, 0, 36);
+}
+
+.button__round {
+  font-size: 22px;
+  font-weight: 600;
+  border-radius: 800px;
+  padding: 16px 20px;
+  transition: all 0.1s ease;
+  background-color: rgba(88, 88, 88, 0.137);
+  box-shadow: 0 5px 20px -5px rgba(194, 194, 194, 0.151) inset;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.button__round:hover {
+  background: white;
+}
+
+.button__round:hover * {
+  color: rgb(5, 0, 36);
+}
+
 a {
   text-decoration: none;
 }
@@ -175,25 +213,12 @@ nav div {
   bottom: 100%;
 }
 
-.home__more--details {
+.home__search--movies {
   position: absolute;
   bottom: calc(20% + 52px);
   left: 65px;
-  padding: 16px 24px;
-  font-size: 22px;
-  font-weight: 600;
-  border-radius: 8px;
-  transition: all 0.1s ease;
-  background-color: rgba(73, 77, 88, 0.644);
-  box-shadow: 0 5px 20px -5px rgb(100, 105, 122) inset;
-  z-index: 1;
-  cursor: pointer;
 }
 
-.home__more--details:hover {
-  background: white;
-  color: rgb(5, 0, 36);
-}
 
 .home__logo {
   position: absolute;
@@ -232,6 +257,7 @@ nav div {
 
 
 
+
 .movie__page--main {
   display: flex;
   justify-content: space-between;
@@ -240,10 +266,15 @@ nav div {
   margin: 0 65px;
 }
 
+.movie__page--main img {
+  pointer-events: none;
+}
+
 .movie__page--info {
   display: flex;
   flex-direction: column;
   justify-content: end;
+  height: 568px;
 }
 
 .movie__page--main img.skelly {
@@ -257,7 +288,7 @@ nav div {
 
 .movie__page--title {
   font-size: 48px;
-  margin-bottom: 12px;
+  margin-bottom: 24px;
   font-weight: bold;
   width: fit-content;
 }
@@ -268,11 +299,40 @@ nav div {
   width: fit-content;
 }
 
-.movie__page--year {
-  margin-top: 18px;
+.movie__page--stats {
+  display: flex;
   font-weight: bold;
-  font-size: 24px;
+  margin-top: 12px;
   width: fit-content;
+}
+
+.movie__page--stats div {
+  margin-right: 22px;
+  width: fit-content;
+  font-size: 16px;
+}
+
+.movie__page--genres {
+  display: flex;
+  margin-top: 4px;
+  font-weight: bold;
+  font-size: 16px;
+  width: fit-content;
+}
+
+.movie__page--genre:not(:first-child)::before {
+  content: '•';
+  margin-left: 12px;
+  margin-right: 8px;
+}
+
+.movie__page--buttons {
+  display: flex;
+  margin-top: 40px;
+}
+
+.movie__page--buttons div {
+  margin-right: 16px;
 }
 
 .movie__page--background-img {
@@ -289,4 +349,31 @@ nav div {
 
 .movies__main {
   margin-top: 100px;
+}
+
+.movies__search--section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.movies__search--title {
+  font-size: 32px;
+}
+
+.movies__search--field {
+  background-color: rgba(255, 255, 255, 0.37);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  width: fit-content;
+  min-width: 400px;
+  border-radius: 90px;
+  margin-top: 16px;
+  font-size: 20px;
+  box-shadow: 4px 6px 20px -5px rgba(255, 255, 255, 0.164);
+}
+
+.movies__search--field::placeholder { 
+  color: white;
 }

@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import MovieList from '../components/MovieList';
 import PrimeWhite from '../prime-white.svg'
+import { Link } from 'react-router-dom';
 
 function Home({ homeMovies }) {
     return (
@@ -18,7 +19,7 @@ function Home({ homeMovies }) {
             </div>
             <div className="home__background--gradient"></div>
             <img src={PrimeWhite} className="home__logo" alt="white prime video logo" />
-            <div className="home__more--details">More details</div>
+            <Link to="/movies"><div className="home__search--movies button">Search movies</div></Link>
         </section>
         <section className="home__browse">
                 <MovieList title="Popular movies" list={homeMovies.slice(30, 45)} />

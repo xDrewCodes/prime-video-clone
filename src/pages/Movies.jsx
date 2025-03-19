@@ -4,6 +4,8 @@ import MovieList from '../components/MovieList'
 
 function Movies() {
     const [moviesList, setMoviesList] = useState([])
+    const [searchedMovies, setSearchedMovies] = useState(null)
+    const [searchQuery, setSearchQuery] = useState()
 
     async function searchMovies() {
         const queries = ['i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q']
@@ -49,17 +51,44 @@ function Movies() {
         'Action and adventure movies'
     ]
 
+    async function search(query) {
+
+        setSearchQuery(query)
+
+        const options = {
+            method: 'GET',
+            url: 'https://imdb.iamidiotareyoutoo.com/search',
+            params: { q: query }
+        }
+        let response = await axios.request(options)
+        setSearchedMovies(response.data.description)
+
+    }
+
     return (
         <div className="movies__main">
+            <div className="movies__search--section">
+                <div className="movies__search--title">Search our catalogue of great movies</div>
+                <input className="movies__search--field" onKeyDown={(event) => { if (event.key === 'Enter') { search(event.target.value) } }} placeholder='Try "Inception"' type="text"></input>
+            </div>
+
+            {
+                searchedMovies &&
+                <>
+                    <MovieList title={`Results for: ${searchQuery}`} list={searchedMovies.slice(0, 6)} />
+                    <br />
+                    <br />
+                </>
+            }
             {
                 moviesList.length > 0 ?
-                chunkMovies(moviesList.slice(0, 66), 11).map((chunk, index) => (
-                    <MovieList key={index} title={movielistTitles[index]} list={chunk} />
-                ))
-                :
-                movielistTitles.map((_, index) => (
-                    <MovieList key={index} title={movielistTitles[index]} list={null} />
-                ))
+                    chunkMovies(moviesList.slice(0, 66), 11).map((chunk, index) => (
+                        <MovieList key={index} title={movielistTitles[index]} list={chunk} />
+                    ))
+                    :
+                    movielistTitles.map((_, index) => (
+                        <MovieList key={index} title={movielistTitles[index]} list={null} />
+                    ))
             }
         </div>
     )
