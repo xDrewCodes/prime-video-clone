@@ -78,10 +78,12 @@ function MoviePage(movie) {
                         <div className="movie__page--buttons">
                             <div className="movie__button--rent button">Rent UHD</div>
                             <div className="movie__button--options button">More purchase options</div>
-                            <div className="movie__button--add button__round"><FontAwesomeIcon icon="plus" /></div>
-                            <div className="movie__button--add button__round"><FontAwesomeIcon icon="thumbs-up" /></div>
-                            <div className="movie__button--add button__round"><FontAwesomeIcon icon="thumbs-down" /></div>
-                            <div className="movie__button--add button__round"><FontAwesomeIcon icon="share-nodes" /></div>
+                            <div className="movie__button--rounds">
+                                <div className="movie__button--add button__round"><FontAwesomeIcon icon="plus" /></div>
+                                <div className="movie__button--up button__round"><FontAwesomeIcon icon="thumbs-up" /></div>
+                                <div className="movie__button--down button__round"><FontAwesomeIcon icon="thumbs-down" /></div>
+                                <div className="movie__button--share button__round"><FontAwesomeIcon icon="share-nodes" /></div>
+                            </div>
                         </div>
                     </div>
                     :
