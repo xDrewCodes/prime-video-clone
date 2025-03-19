@@ -6,7 +6,7 @@ function Movies() {
     const [moviesList, setMoviesList] = useState([])
 
     async function searchMovies() {
-        const queries = ['i', 'j', 'k', 'l', 'm', 'n', 'o', 'p']
+        const queries = ['i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q']
         const requests = []
 
         queries.forEach(query => {
@@ -40,16 +40,26 @@ function Movies() {
         return chunks
     }
 
+    let movielistTitles = [
+        'Recent releases',
+        'Popular movies',
+        'Drama movies',
+        'Documentaries',
+        'Kids and family movies',
+        'Action and adventure movies'
+    ]
+
     return (
-        <div>
+        <div className="movies__main">
             {
                 moviesList.length > 0 ?
-                chunkMovies(moviesList, 11).map((chunk, index) => (
-                    <MovieList key={index} title={`Movies ${index + 1}`} list={chunk} />
+                chunkMovies(moviesList.slice(0, 66), 11).map((chunk, index) => (
+                    <MovieList key={index} title={movielistTitles[index]} list={chunk} />
                 ))
                 :
-                //New Array(10).fill(0).map()
-                ''
+                movielistTitles.map((_, index) => (
+                    <MovieList key={index} title={movielistTitles[index]} list={null} />
+                ))
             }
         </div>
     )

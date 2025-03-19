@@ -25,9 +25,9 @@ function Nav() {
                 <Link to="/"><div className="nav__logo">prime video</div></Link>
                 <Link to="/"><div className="nav__link nav__link--selected" onClick={(e) => {switchPage(e.target)}}>Home</div></Link>
                 <Link to="/movies"><div className="nav__link" onClick={(e) => {switchPage(e.target)}}>Movies</div></Link>
-                <Link to="/shows"><div className="nav__link" onClick={(e) => {switchPage(e.target)}}>TV shows</div></Link>
-                <Link to="/sports"><div className="nav__link" onClick={(e) => {switchPage(e.target)}}>Sports</div></Link>
-                <Link to="/tv"><div className="nav__link" onClick={(e) => {switchPage(e.target)}}>Live TV</div></Link>
+                <div className="nav__link" style={{cursor: 'not-allowed'}}>TV shows</div>
+                <div className="nav__link" style={{cursor: 'not-allowed'}}>Sports</div>
+                <div className="nav__link" style={{cursor: 'not-allowed'}}>Live TV</div>
             </div>
             <div className="nav__profile--side">
                 <div className="nav__select"><FontAwesomeIcon icon="grip"/></div>

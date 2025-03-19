@@ -8,8 +8,14 @@ function MovieList({ title, list }) {
             <div className="movie__list--title">{title}</div>
             <div className="movie__list--movies">
                 {
+                    list
+                    ?
                     list.map((movie, index) => {
                         return <Movie movie={movie} key={index} />
+                    })
+                    :
+                    new Array(11).fill(0).map((_, index) => {
+                        return <Movie movie="" key={index} />
                     })
                 }
             </div>

@@ -7,7 +7,7 @@ function Movie(movie) {
     let navigate = useNavigate()
 
     return (
-        <img loading="eager" src={movie.movie['#IMG_POSTER'] || ""} alt={movie.movie['#TITLE'] || ""} onClick={() => navigate(`/movies/${movie.movie['#TITLE'].split(' ').join('')}`)} />
+        <img loading="eager" className="movie skelly" src={movie.movie['#IMG_POSTER'] || null} alt={movie.movie['#TITLE'] || ""} onClick={() => navigate(`/movies/${movie.movie['#TITLE'].split(' ').join('')}`)} />
     )
 }
 

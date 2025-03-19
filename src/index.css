@@ -19,6 +19,16 @@ body {
   margin: 0 65px;
 }
 
+.movie {
+  height: 210px;
+  width: 140px;
+}
+
+.movie:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 2.5px 10px -2.5px rgba(143, 143, 143, 0.411);
+}
+
 .skelly {
   background-color: rgba(204, 204, 204, 0.356);
   color: rgba(0, 0, 0, 0);
@@ -152,7 +162,6 @@ nav div {
   top: 80vh;
   left: 0;
   width: 100%;
-  height: 200vh;
   background-color: rgb(5, 0, 36);
 }
 
@@ -209,12 +218,12 @@ nav div {
 
 .movie__list--movies {
   display: flex;
+  gap: 32px;
 }
 
 .movie__list--movies img {
   height: 210px;
   width: 140px;
-  margin-right: 32px;
   object-fit: cover;
   cursor: pointer;
 }
@@ -273,4 +282,11 @@ nav div {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+
+
+
+.movies__main {
+  margin-top: 100px;
 }
