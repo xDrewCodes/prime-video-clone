@@ -28,7 +28,7 @@ function MoviePage(movie) {
 
     useEffect(() => {
         getMovie()
-    }, [])
+    })
     console.log(currentMovie)
     return (
         <div className="movie__page--main">

@@ -1,5 +1,4 @@
 
-import React, { useEffect } from 'react';
 import MovieList from '../components/MovieList';
 import PrimeWhite from '../prime-white.svg'
 import { Link } from 'react-router-dom';
