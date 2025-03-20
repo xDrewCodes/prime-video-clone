@@ -195,24 +195,17 @@ nav div {
 
 
 .home__movie--img {
-  height: 300px;
-  width: 205px;
+  height: 100%;
+  width: 110%;
   margin-top: 0;
-  opacity: 0.75;
 }
 
 .home__background--display {
   position: fixed;
-  top: -240px;
-  left: -120px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0;
-  width: 130%;
-  height: 120%;
-  transform: rotate(-12deg);
+  inset: -10vw;
   z-index: -2;
-  align-content: start;
+  transform: rotate(-12deg);
+  opacity: 0.75;
 }
 
 .home__background--gradient {
@@ -934,4 +927,18 @@ nav div {
     font-size: 20px;
   }
 
+}
+
+.home__movie--img-test {
+  height: 100%;
+  width: 110%;
+  margin-top: 0;
+}
+
+.home__background--display-test {
+  position: fixed;
+  inset: -10vw;
+  z-index: -2;
+  transform: rotate(-12deg);
+  opacity: 0.75;
 }
