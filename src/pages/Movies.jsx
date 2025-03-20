@@ -6,7 +6,7 @@ function Movies() {
     const [moviesList, setMoviesList] = useState([])
     const [searchedMovies, setSearchedMovies] = useState(null)
     const [searchQuery, setSearchQuery] = useState('')
-    const [inputValue, setInputValue] = useState('') // State to track input value
+    const [inputValue, setInputValue] = useState('')
 
     async function searchMovies() {
         const queries = ['i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q']
@@ -34,7 +34,6 @@ function Movies() {
         searchMovies()
     }, [])
 
-    // Helper function to chunk the moviesList into groups of 5
     const chunkMovies = (movies, chunkSize) => {
         const chunks = []
         for (let i = 0; i < movies.length; i += chunkSize) {
@@ -70,8 +69,8 @@ function Movies() {
                 <div className="movies__search--title">Search our catalogue of great movies</div>
                 <input
                     className="movies__search--field"
-                    value={inputValue} // Bind input value to state
-                    onChange={(event) => setInputValue(event.target.value)} // Update state on change
+                    value={inputValue}
+                    onChange={(event) => setInputValue(event.target.value)}
                     onKeyDown={(event) => {
                         if (event.key === 'Enter') {
                             search(event.target.value || 'Twisters')
@@ -82,7 +81,7 @@ function Movies() {
                 />
                 <button
                     className="movies__search--button"
-                    onClick={() => search(inputValue || 'Twisters')} // Use inputValue for search
+                    onClick={() => search(inputValue || 'Twisters')}
                 >
                     Search
                 </button>

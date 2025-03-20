@@ -286,10 +286,10 @@ nav div {
 
 .movie__page--main {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   height: 95vh;
-  margin: 0 65px;
+  margin: 0;
 }
 
 .movie__page--main img {
@@ -438,7 +438,210 @@ nav div {
 
 
 
-@media only screen and (max-width: 480px) {
+
+
+@media only screen and (max-width: 1300px) {
+
+  nav {
+    top: 4px;
+    justify-content: space-between;
+    left: 0;
+    width: calc(100% - 36px);
+  }
+
+  .row {
+    margin: 0 24px;
+  }
+
+  .nav__logo {
+    font-size: 20px;
+    width: fit-content;
+    margin-right: 10px;
+  }
+
+  .nav__link {
+    margin: 0;
+    padding: 4px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+  }
+
+  .nav__join-prime {
+    display: unset;
+    font-size: 16px;
+    padding: 6px 16px;
+    margin-left: 14px;
+  }
+
+  .nav__profile {
+    display: unset;
+    height: 25px;
+    width: 25px;
+    margin-left: 4px;
+  }
+
+  .home__movie--img {
+    height: 160px;
+    width: 115px;
+  }
+
+  .home__browse {
+    top: 100vh;
+  }
+
+  .home__logo {
+    bottom: 50%;
+    max-width: 300px;
+    width: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(50%);
+  }
+
+  .home__search--movies {
+    bottom: 30%;
+    font-size: 14px;
+    padding: 10px 0;
+    width: 50%;
+    max-width: 300px;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%) translateY(50%);
+  }
+
+  .movie {
+    height: 130px !important;
+    width: 90px !important;
+  }
+
+  .movie__list--container:first-child {
+    margin-top: 68px;
+  }
+
+  .movie__list--movies {
+    gap: 18px;
+  }
+
+
+
+
+
+  .movies__search--section {
+    height: fit-content;
+  }
+
+  .movies__search--title {
+    width: fit-content;
+    margin: 0 auto;
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .movies__search--field {
+    margin-top: 12px;
+  }
+
+  .movies__search--button {
+    margin-top: 12px;
+  }
+
+
+
+
+
+  .movie__page--main {
+    flex-direction: row;
+    margin: 0;
+    min-height: 100vh;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    overflow-y: auto;
+  }
+
+  .movie__page--main img:last-child {
+    width: 40%;
+    max-width: 250px;
+    height: auto;
+    margin-bottom: 0;
+    position: relative;
+  }
+
+  .movie__page--info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    max-width: 350px;
+    height: 100%;
+  }
+
+  .movie__page--title {
+    width: 100%;
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+
+  .movie__page--description {
+    max-width: 400px;
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .movie__page--stats {
+    margin-top: 14px;
+  }
+
+  .movie__page--info {
+    align-items: center;
+    text-align: center;
+  }
+
+  .movie__page--stats div:not(:last-child) {
+    margin-right: 12px;
+  }
+
+  .movie__page--stats div:last-child {
+    margin-right: 0;
+  }
+
+
+  .movie__page--buttons {
+    margin-top: 24px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .movie__page--buttons div {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+
+  .movie__button--rounds {
+    display: flex;
+    margin-bottom: 0 !important;
+  }
+
+  .movie__button--rounds div:not(:first-child) {
+    margin-left: 8px;
+  }
+
+  .button {
+    font-size: 18px;
+    padding: 4px 24px;
+    width: fit-content;
+  }
+
+  .button__round {
+    font-size: 18px;
+    padding: 10px 14px;
+  }
+
+}
+
+
+
+@media only screen and (max-width: 560px) {
 
   nav {
     position: fixed;
@@ -560,7 +763,7 @@ nav div {
   .movies__search--field {
     text-align: center;
     min-width: none;
-    width: 90%;
+    width: 80%;
     max-width: 350px;
     padding: 6px 0;
   }
@@ -568,7 +771,7 @@ nav div {
   .movies__search--button {
     text-align: center;
     min-width: none;
-    width: 90%;
+    width: 80%;
     max-width: 350px;
     padding: 6px 0;
   }
@@ -604,6 +807,7 @@ nav div {
     align-items: center;
     text-align: center;
     height: fit-content;
+    width: 100%;
   }
 
   .movie__page--title {
@@ -649,6 +853,7 @@ nav div {
 
   .movie__button--rounds {
     display: flex;
+    margin-bottom: 20px !important;
   }
 
   .movie__button--rounds div:not(:first-child) {
