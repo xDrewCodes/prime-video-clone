@@ -1,40 +1,9 @@
-import axios from 'axios';
-import React, { useEffect } from 'react';
+
 import MovieList from '../components/MovieList';
+import PrimeWhite from '../prime-white.svg'
+import { Link } from 'react-router-dom';
 
 function Home({ homeMovies }) {
-    
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollPosition = window.scrollY;
-            const gradientElement = document.querySelector('.home__background--display');
-            if (gradientElement) {
-                gradientElement.style.transform = `rotate(-12deg) translateX(-${scrollPosition / 2.5}px)`;
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-
-    useEffect(() => {
-        if (homeMovies.length >= 12) {
-            const imdbId = homeMovies[11]['#IMDB_ID'];
-            const options = { method: 'GET', url: `https://imdb.iamidiotareyoutoo.com/search?tt=${imdbId}` };
-
-            axios.request(options)
-                .then(response => {
-                    console.log(response.data);
-                })
-                .catch(error => {
-                    console.error(error);
-                });
-        }
-    }, [homeMovies]);
-
     return (
         <>
         <section className="home__main">
@@ -42,15 +11,19 @@ function Home({ homeMovies }) {
                 {
                     homeMovies.map((movie, index) => {
                         return (
-                            <img src={movie['#IMG_POSTER']} key={index} className="home__movie--img" />
+                            <img src={movie['#IMG_POSTER']} alt='movie poster' key={index} className="home__movie--img" />
                         )
                     })
                 }
             </div>
             <div className="home__background--gradient"></div>
+            <img src={PrimeWhite} className="home__logo" alt="white prime video logo" />
+            <Link to="/movies"><div className="home__search--movies">Search movies</div></Link>
         </section>
         <section className="home__browse">
-                <MovieList title="Popular movies" query="inception" />
+                <MovieList title="Popular movies" list={homeMovies.slice(30, 45)} />
+                <MovieList title="Recently added" list={homeMovies.slice(0, 15)} />
+                <MovieList title="Amazon originals" list={homeMovies.slice(20, 35)} />
         </section>
         </>
     )

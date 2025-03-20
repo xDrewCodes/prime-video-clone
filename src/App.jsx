@@ -4,6 +4,7 @@ import Nav from "./components/Nav"
 import Home from './pages/Home'
 import Movies from './pages/Movies'
 import { useEffect, useState } from 'react'
+import MoviePage from './pages/MoviePage'
 
 function App() {
 
@@ -40,7 +41,8 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" exact element={<Home homeMovies={homeMovies} />}></Route>
-        <Route path="/movies" element={<Movies />}></Route>
+        <Route path="/movies"exact element={<Movies />}></Route>
+        <Route path="/movies/:id" element={<MoviePage />}></Route>
         <Route path=":page" element={<></>}></Route>
       </Routes>
     </Router>
