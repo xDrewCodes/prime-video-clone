@@ -7,6 +7,25 @@ body {
   overflow-x: hidden;
 }
 
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #adabba #050024;
+  }
+
+  *::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #050024;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #adabba;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+  }
+
 body {
   background-color: rgb(5, 0, 36);
 
@@ -270,6 +289,7 @@ nav div {
 .movie__list--movies {
   display: flex;
   gap: 32px;
+  overflow-x: scroll;
 }
 
 .movie__list--movies img {
@@ -298,6 +318,19 @@ nav div {
 
 .movie__page--main img:last-child {
   z-index: 2;
+}
+
+.movie__page--back {
+  margin-bottom: 164px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  width: fit-content;
+  border-bottom: 2px rgba(255, 255, 255, 0) solid;
+}
+
+.movie__page--back:hover {
+  border-bottom: 2px white solid;
 }
 
 .movie__page--info {
@@ -383,6 +416,7 @@ nav div {
 
 .movies__main {
   margin-top: 100px;
+  position: relative;
 }
 
 .movies__search--section {
@@ -432,6 +466,18 @@ nav div {
 
 .movies__search--field::placeholder {
   color: white;
+}
+
+.movies__search--close {
+  position: absolute;
+  right: 65px;
+  transform: translateY(58px);
+  cursor: pointer;
+}
+
+.movies__search--close * {
+  font-size: 22px;
+  color: red;
 }
 
 
@@ -564,6 +610,13 @@ nav div {
     height: auto;
     margin-bottom: 0;
     position: relative;
+  }
+
+  .movie__page--back {
+    position: absolute;
+    top: 55px;
+    left: 24px;
+    font-size: 16px;
   }
 
   .movie__page--info {
@@ -869,6 +922,16 @@ nav div {
   .button__round {
     font-size: 18px;
     padding: 10px 14px;
+  }
+
+  .movies__search--close {
+    position: absolute;
+    right: 15px;
+    transform: translateY(18px);
+  }
+  
+  .movies__search--close * {
+    font-size: 20px;
   }
 
 }

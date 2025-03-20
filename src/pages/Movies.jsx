@@ -1,16 +1,17 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import MovieList from '../components/MovieList'
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import MovieList from '../components/MovieList';
 
 function Movies() {
-    const [moviesList, setMoviesList] = useState([])
-    const [searchedMovies, setSearchedMovies] = useState(null)
-    const [searchQuery, setSearchQuery] = useState('')
-    const [inputValue, setInputValue] = useState('')
+    const [moviesList, setMoviesList] = useState([]);
+    const [searchedMovies, setSearchedMovies] = useState(null);
+    const [searchQuery, setSearchQuery] = useState(sessionStorage.getItem('searchQuery') || '');
+    const [inputValue, setInputValue] = useState(sessionStorage.getItem('searchQuery') || '');
 
     async function searchMovies() {
-        const queries = ['i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q']
-        const requests = []
+        const queries = ['i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q'];
+        const requests = [];
 
         queries.forEach(query => {
             const options = {
@@ -18,29 +19,72 @@ function Movies() {
                 url: 'https://imdb.iamidiotareyoutoo.com/search',
                 params: { q: query }
             }
-            requests.push(axios.request(options))
-        })
+            requests.push(axios.request(options));
+        });
 
         try {
-            const responses = await Promise.all(requests)
-            const movies = responses.flatMap(response => response.data.description)
-            setMoviesList(movies)
+            const responses = await Promise.all(requests);
+            const movies = responses.flatMap(response => response.data.description);
+            setMoviesList(movies);
         } catch (error) {
-            console.error(error)
+            console.error(error);
         }
     }
+
+    async function search(query) {
+        setSearchQuery(query);
+        if (query.trim()) {
+            sessionStorage.setItem('searchQuery', query);
+        } else {
+            sessionStorage.removeItem('searchQuery');
+        }
+
+        const options = {
+            method: 'GET',
+            url: 'https://imdb.iamidiotareyoutoo.com/search',
+            params: { q: query }
+        };
+        try {
+            let response = await axios.request(options);
+            setSearchedMovies(response.data.description);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    // Monitor changes in searchQuery and update sessionStorage accordingly
+    useEffect(() => {
+        if (searchQuery) {
+            sessionStorage.setItem('searchQuery', searchQuery);
+        } else {
+            sessionStorage.removeItem('searchQuery');
+        }
+    }, [searchQuery]);
+
+    // Reset searchedMovies and searchQuery when close button is clicked
+    const handleClose = () => {
+        setSearchedMovies(null);
+        setInputValue('');
+        setSearchQuery(''); // Reset search query as well
+    };
 
     useEffect(() => {
-        searchMovies()
-    }, [])
+        if (searchQuery) {
+            search(searchQuery); // Trigger search on initial load if there's a search query
+        }
+    }, [searchQuery]);
+
+    useEffect(() => {
+        searchMovies();
+    }, []);
 
     const chunkMovies = (movies, chunkSize) => {
-        const chunks = []
+        const chunks = [];
         for (let i = 0; i < movies.length; i += chunkSize) {
-            chunks.push(movies.slice(i, i + chunkSize))
+            chunks.push(movies.slice(i, i + chunkSize));
         }
-        return chunks
-    }
+        return chunks;
+    };
 
     let movielistTitles = [
         'Recent releases',
@@ -49,19 +93,7 @@ function Movies() {
         'Documentaries',
         'Kids and family movies',
         'Action and adventure movies'
-    ]
-
-    async function search(query) {
-        setSearchQuery(query)
-
-        const options = {
-            method: 'GET',
-            url: 'https://imdb.iamidiotareyoutoo.com/search',
-            params: { q: query }
-        }
-        let response = await axios.request(options)
-        setSearchedMovies(response.data.description)
-    }
+    ];
 
     return (
         <div className="movies__main">
@@ -73,7 +105,7 @@ function Movies() {
                     onChange={(event) => setInputValue(event.target.value)}
                     onKeyDown={(event) => {
                         if (event.key === 'Enter') {
-                            search(event.target.value || 'Twisters')
+                            search(event.target.value);
                         }
                     }}
                     placeholder='Try "Twisters"'
@@ -81,32 +113,32 @@ function Movies() {
                 />
                 <button
                     className="movies__search--button"
-                    onClick={() => search(inputValue || 'Twisters')}
+                    onClick={() => search(inputValue)}
                 >
                     Search
                 </button>
             </div>
 
-            {
-                searchedMovies &&
+            {searchedMovies && (
                 <>
-                    <MovieList title={`Results for: ${searchQuery}`} list={searchedMovies.slice(0, 6)} />
+                    <div className="movies__search--close" onClick={handleClose}>
+                        <FontAwesomeIcon icon="circle-xmark" />
+                    </div>
+                    <MovieList title={`Results for: ${searchQuery}`} list={searchedMovies} />
                     <br />
                     <br />
                 </>
-            }
-            {
-                moviesList.length > 0 ?
-                    chunkMovies(moviesList.slice(0, 66), 11).map((chunk, index) => (
-                        <MovieList key={index} title={movielistTitles[index]} list={chunk} />
-                    ))
-                    :
-                    movielistTitles.map((_, index) => (
-                        <MovieList key={index} title={movielistTitles[index]} list={null} />
-                    ))
-            }
+            )}
+
+            {moviesList.length > 0
+                ? chunkMovies(moviesList.slice(0, 66), 22).map((chunk, index) => (
+                    <MovieList key={index} title={movielistTitles[index]} list={chunk} />
+                ))
+                : movielistTitles.map((_, index) => (
+                    <MovieList key={index} title={movielistTitles[index]} list={null} />
+                ))}
         </div>
-    )
+    );
 }
 
-export default Movies
+export default Movies;

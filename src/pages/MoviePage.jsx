@@ -1,6 +1,5 @@
-
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom' // Import useNavigate
 import axios from 'axios'
 import PrimeWhite from '../prime-white.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -8,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 function MoviePage(movie) {
 
     let mov = useParams()
+    const navigate = useNavigate() // Initialize useNavigate
     const [currentMovie, setCurrentMovie] = useState(null)
 
     async function getMovie() {
@@ -28,14 +28,19 @@ function MoviePage(movie) {
 
     useEffect(() => {
         getMovie()
-    })
-    console.log(currentMovie)
+    }, [])
+
     return (
         <div className="movie__page--main">
+            
             <img loading="eager" src={currentMovie && currentMovie.Poster} alt={currentMovie && currentMovie.Title} className="movie__page--background-img" />
             {
                 currentMovie ?
-                    <div className="movie__page--info">
+                <div className="movie__page--info">
+                        <div className="movie__page--back" onClick={() => navigate(-1)}>
+                            <FontAwesomeIcon icon="angle-left" style={{marginRight: '8px'}} />
+                            Back
+                            </div>
                         <div className="movie__page--title">{currentMovie.Title}</div>
                         <div className="movie__page--description">{currentMovie.Plot}</div>
                         <div className="movie__page--stats">
